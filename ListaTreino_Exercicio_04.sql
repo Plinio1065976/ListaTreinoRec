@@ -1,0 +1,28 @@
+CREATE DATABASE ListaTreino_Exercicio_04;
+
+USE ListaTreino_Exercicio_04;
+
+CREATE TABLE Prato (
+    ID INT AUTO_INCREMENT,
+    Nome VARCHAR(255),
+    Preco NUMERIC(10,2),
+    PRIMARY KEY (ID)
+);
+
+CREATE TABLE Chef (
+    ID INT AUTO_INCREMENT,
+    Nome VARCHAR(255),
+    Especialidade VARCHAR(255),
+    PRIMARY KEY (ID)
+);
+
+CREATE TABLE Restaurante (
+    ID INT AUTO_INCREMENT,
+    Nome VARCHAR(255),
+    Endereco VARCHAR(255),
+    ID_B_FK INT,
+    ID_C_FK INT,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (ID_B_FK) REFERENCES Chef(ID),
+    FOREIGN KEY (ID_C_FK) REFERENCES Prato(ID)
+);
